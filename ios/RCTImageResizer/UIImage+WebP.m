@@ -10,7 +10,7 @@
 #import "UIImage+WebP.h"
 
 // This gets called when the UIImage gets collected and frees the underlying image.
-static void free_image_data(void *info, const void *data, size_t size)
+/*static void free_image_data(void *info, const void *data, size_t size)
 {
     if(info != NULL) {
         WebPFreeDecBuffer(&(((WebPDecoderConfig *) info)->output));
@@ -18,14 +18,14 @@ static void free_image_data(void *info, const void *data, size_t size)
     }
     
     free((void *) data);
-}
+}*/
 
 
 @implementation UIImage (WebP)
 
 #pragma mark - Private methods
 
-+ (NSData *)convertToWebP:(UIImage *)image
+/*+ (NSData *)convertToWebP:(UIImage *)image
                   quality:(CGFloat)quality
                     alpha:(CGFloat)alpha
                    preset:(WebPPreset)preset
@@ -403,5 +403,5 @@ static void free_image_data(void *info, const void *data, size_t size)
             break;
     }
     return errorString;
-}
+}*/
 @end

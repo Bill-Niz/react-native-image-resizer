@@ -10,8 +10,8 @@
 #define UIImage_WebP_h
 
 #import <UIKit/UIKit.h>
-#import <libwebp/webp/decode.h>
-#import <libwebp/webp/encode.h>
+//#import <libwebp/webp/decode.h>
+//#import <libwebp/webp/encode.h>
 //#import <encode.h>
 //#import <decode.h>
 //#import <WebP/encode.h>
@@ -20,7 +20,7 @@
 
 @interface UIImage (WebP)
 
-+ (UIImage*)imageWithWebPData:(NSData*)imgData;
+/*+ (UIImage*)imageWithWebPData:(NSData*)imgData;
 
 + (UIImage*)imageWithWebP:(NSString*)filePath;
 
@@ -45,7 +45,7 @@
       completionBlock:(void (^)(UIImage* result))completionBlock
          failureBlock:(void (^)(NSError* error))failureBlock;
 
-- (UIImage*)imageByApplyingAlpha:(CGFloat)alpha;
+- (UIImage*)imageByApplyingAlpha:(CGFloat)alpha;*/
 
 @end
 

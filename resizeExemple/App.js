@@ -88,7 +88,7 @@ export default class App extends Component {
   }
 
   resize () {
-    ImageResizer.createResizedImage(this.state.image.uri, 1000, 900, 'WEBP', 70)
+    ImageResizer.createResizedImage(this.state.image.uri, 1000, 900, 'WEBP', 1)
       .then((result) => {
         console.log(result)
         const { uri } = result

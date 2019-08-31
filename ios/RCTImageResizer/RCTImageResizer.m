@@ -9,7 +9,7 @@
 #include "ImageHelpers.h"
 #import <React/RCTImageLoader.h>
 #include "UIImage+WebP.h"
-#import <libwebp/webp/encode.h>
+//#import <libwebp/webp/encode.h>
 
 @implementation ImageResizer
 
@@ -46,7 +46,15 @@ void saveImage(NSString * fullPath, UIImage * image, NSString * format, float qu
         }
         callback(result);
     } else if([format isEqualToString:@"WEBP"]){
-        data = [UIImage imageToWebP:image quality:quality];
+        data = UIImageJPEGRepresentation(image, quality / 100.0);
+        if (data == nil) {
+            NSLog(@"NO Data JPEG");
+            callback(NO);
+        }
+        
+        NSFileManager* fileManager = [NSFileManager defaultManager];
+        callback([fileManager createFileAtPath:fullPath contents:data attributes:nil]);
+       /* data = [UIImage imageToWebP:image quality:quality];
         [UIImage imageToWebP:image quality:quality alpha:1 preset:WEBP_PRESET_DEFAULT completionBlock:^(NSData *result) {
             if (result == nil) {
                 NSLog(@"NO Data WEBP");
@@ -57,7 +65,7 @@ void saveImage(NSString * fullPath, UIImage * image, NSString * format, float qu
             callback([fileManager createFileAtPath:fullPath contents:result attributes:nil]);
         } failureBlock:^(NSError *error) {
             callback(NO);
-        }];
+        }];*/
     }
     
    
